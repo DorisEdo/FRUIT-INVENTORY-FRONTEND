@@ -1,0 +1,171 @@
+.fruitCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  margin-bottom: 40px;
+}
+
+.Fruits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* THIS fixes the squashing */
+}
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.Fruits h1 {
+  margin: 6px 0;
+}
+
+.count {
+  font-weight: bold;
+}
+
+.cost {
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.buttonRow {
+  display: flex;
+  gap: 5px;
+}
+
+.fruit-image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+.Total-Fruits {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.Master-Total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.app-background {
+  background-color: #e6f0ff#f4fbf9;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fruit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  gap: 2rem; /* space between cards */
+  justify-items: center;
+}
+
+.Total-Fruits span,
+.Master-Total span {
+  display: block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.totals-box {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
+  min-width: 220px;
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.totals-box span {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.unavailable {
+  filter: grayscale(50%) blur(2px);
+  opacity: 0.5;
+}
+
+.price {
+  margin-bottom: 22px;
+}
+
+.stars span {
+  display: inline-block;
+}
+
+.stars {
+  font-size: 1.1rem;
+  color: goldenrod;
+  margin-bottom: 4px;
+}
+
+.empty-state {
+  max-width: 420px;
+  margin: 40px auto;
+  padding: 18px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  font-weight: 600;
+}
+
+.empty-state h3 {
+  margin: 0 0 8px 0;
+}
+
+.empty-state p {
+  margin: 0;
+  font-weight: 400;
+}
+
+.favourites-link {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #fff0f3;
+  color: #c9184a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.favourite-link:hover {
+  background: #ffccd5;
+}
+
+.sort-control {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
