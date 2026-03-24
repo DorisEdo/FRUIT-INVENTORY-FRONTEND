@@ -9,9 +9,6 @@ import "./App.css";
 function App() {
   const [fruitArray, setFruitArray] = useState([]);
   const [error, setError] = useState(null);
-  // const [sortMode, setSortMode] = useState("no-sort");
-  // const [selectedStars, setSelectedStars] = useState([]);
-  // const [favouriteFruitIds, setFavouriteFruitIds] = useState([]);
 
   async function fetchFruitData() {
     try {
@@ -101,10 +98,6 @@ function App() {
               addFruit={addFruit}
               subTractFruit={subTractFruit}
               removeFruit={removeFruit}
-              // sortMode={sortMode}
-              // setSortMode={setSortMode}
-              // selectedStars={selectedStars}
-              // setSelectedStars={setSelectedStars}
               chooseFavouriteFruit={chooseFavouriteFruit}
             />
           }
@@ -140,99 +133,3 @@ function App() {
 }
 
 export default App;
-
-// import "./App.css";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import Home from "./pages/Home.jsx";
-// import About from "./pages/About.jsx";
-// import Contact from "./pages/Contact.jsx";
-// import Posts from "./pages/Posts.jsx";
-// import Nav from "./components/Nav.jsx";
-// import Users from "./pages/Users.jsx";
-
-// function App() {
-//   return (
-// {
-/* <Router>
-  <Nav />
-  <Routes> */
-// }
-// {
-/* <Route path="/" element={<Home />} />
-        <Route path="/users/:username" element={<Users />} /> */
-// }
-
-// {
-/* <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/posts" element={<Posts />} /> */
-// }
-//   </Routes>
-// </Router>;
-// //   );
-// }
-
-// export default App;
-
-// import MyCourses from "./components/MyCourses.jsx";
-// import PopUp from "./components/Popup.jsx";
-// import { useState, useEffect } from "react";
-// import Counter from "./components/Counter.jsx";
-
-// function App() {
-//   const [popUpOpen, setPopUpOpen] = useState(false);
-
-//   function togglePopUp() {
-//     setPopUpOpen(true);
-//     console.log("Parent notified");
-//   }
-
-//   function closePopUp() {
-//     setPopUpOpen(false);
-//   }
-
-//   useEffect(() => {
-//     console.log("ONLY when component mounts");
-//   }, []);
-
-//   useEffect(() => {
-//     console.log("When component mounted AND ${popUpOpen} changes in value}");
-//   }, [popUpOpen]);
-
-//   useEffect(() => {
-//     console.log("On every render");
-//   });
-//   // return <Counter />;
-
-//   return (
-//     <>
-//       <h1>My Courses</h1>
-//       <div>
-//         <input
-//           type="text"
-//           onChange={(event) => {
-//             console.log(event.target.value);
-//           }}
-//         />
-//         <button onClick={() => setPopUpOpen(true)}>Add to do</button>
-//       </div>
-//       <MyCourses togglePopUp={togglePopUp} task={[1, 2, 3]} />
-//       <MyCourses togglePopUp={togglePopUp} task="Do the task from Manager" />
-//       <MyCourses
-//         togglePopUp={togglePopUp}
-//         task="Do another Typescript Course"
-//       />
-//       <MyCourses togglePopUp={togglePopUp} task="Prove naysayers wrong" />
-
-//       {popUpOpen && (
-//         <PopUp
-//           closePopUp={closePopUp}
-//           title="Are you certain you want to confirm?"
-//         />
-//       )}
-//     </>
-//   );
-// }
-
-// export default App;

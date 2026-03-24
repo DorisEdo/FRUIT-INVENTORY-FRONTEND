@@ -13,10 +13,6 @@ function FruitCounter({
   addFruit,
   subTractFruit,
   removeFruit,
-  // sortMode,
-  // setSortMode,
-  // selectedStars,
-  // setSelectedStars,
   chooseFavouriteFruit,
 }) {
   const [sortMode, setSortMode] = useState("no-sort");

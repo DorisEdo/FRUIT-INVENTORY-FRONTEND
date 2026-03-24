@@ -33,7 +33,7 @@ describe("FruitCouter with mocked API", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <App />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     screen.debug();
 
@@ -47,7 +47,7 @@ describe("FruitCouter with mocked API", () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
         <App />
-      </MemoryRouter>
+      </MemoryRouter>,
     );
     screen.debug();
 
@@ -71,38 +71,3 @@ describe("FruitCouter with mocked API", () => {
     expect(screen.queryByText("Your cart is empty")).not.toBeInTheDocument();
   });
 });
-
-//   test("renders the total number of each fruit when clicked", async () => {
-//     axios.get.mockResolvedValue({ data: fakeFruitsMock });
-//     render(
-//       <FruitCounter
-//         fruitType={fakeFruitsMock}
-//         updateFruitCount={fakeFruitsFunction}
-//       />
-//     );
-//     screen.debug();
-
-//     expect(await screen.findByText("Apple")).toBeInTheDocument();
-
-//     expect(screen.getByText("Total number of fruits: 0")).toBeInTheDocument();
-//     fireEvent.click(screen.getAllByRole("button", { name: "Add" })[0]);
-//     expect(screen.getByText("Total number of fruits: 1")).toBeInTheDocument();
-//   });
-
-//   test("renders the grand total of costs", async () => {
-//     axios.get.mockResolvedValue({ data: fakeFruitsMock });
-//     render(
-//       <FruitCounter
-//         fruitType={fakeFruitsMock}
-//         updateFruitCount={fakeFruitsFunction}
-//       />
-//     );
-//     screen.debug();
-
-//     expect(await screen.findByText("Apple")).toBeInTheDocument();
-
-//     expect(screen.getByText("Grand total of costs: £0.00")).toBeInTheDocument();
-//     fireEvent.click(screen.getAllByRole("button", { name: "Add" })[0]);
-//     expect(screen.getByText("Grand total of costs: £0.25")).toBeInTheDocument();
-//   });
-// });
