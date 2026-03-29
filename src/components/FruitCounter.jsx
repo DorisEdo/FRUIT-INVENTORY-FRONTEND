@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { totalNumberOfFruits } from "../utils/fruitTotals";
 import { masterTotal } from "../utils/fruitTotals";
 import { useState } from "react";
-import fruitSorter from "../utils/FruitSorter";
+import fruitSorter from "../utils/fruitSorter";
 
 function FruitCounter({
   fruitArray,
