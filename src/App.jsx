@@ -4,35 +4,49 @@ import axios from "axios";
 import FruitCounter from "./components/FruitCounter";
 import CartPage from "./components/CartPage";
 import HeartsPage from "./components/HeartsPage";
+import LoginPage from "./components/LoginPage";
+import AdminDashboard from "./pages/AdminDashboard";
 import "./App.css";
 
 function App() {
   const [fruitArray, setFruitArray] = useState([]);
   const [error, setError] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
 
-  async function fetchFruitData() {
+  async function fetchFruitData(authToken) {
     try {
-      const { data } = await axios.get("/api/fruit/all");
+      const { data } = await axios.get("http://localhost:5000/api/fruits", {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+
       const newData = data.map((fruit) => {
         return {
           id: fruit.id,
           name: fruit.name,
           count: 0,
-          price: fruit.nutritions.calories,
-          availability: Math.trunc(fruit.nutritions.sugar),
+          price: fruit.price,
+          availability: fruit.stockQuantity,
           stars: Math.floor(Math.random() * 6),
           isFavourite: false,
+          imageUrl: fruit.imageUrl,
+          category: fruit.category?.name || "No category",
         };
       });
+
       setFruitArray(newData);
     } catch (error) {
+      console.error("Failed to fetch fruits:", error);
       setError(error);
     }
   }
 
   useEffect(() => {
-    fetchFruitData();
-  }, []);
+    if (token) {
+      fetchFruitData(token);
+    }
+  }, [token]);
 
   const addFruit = (fruitName) => {
     setFruitArray((prevArray) => {
@@ -76,7 +90,6 @@ function App() {
   };
 
   const chooseFavouriteFruit = (fruitId) => {
-    console.log(fruitId);
     setFruitArray((prevArray) => {
       return prevArray.map((fruit) => {
         if (fruitId === fruit.id) {
@@ -87,8 +100,29 @@ function App() {
     });
   };
 
+  const handleLogin = (newToken) => {
+    setToken(newToken);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    setFruitArray([]);
+  };
+
+  if (!token) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
   return (
     <Router>
+      <div className="logout-bar">
+        <button className="logout-button" onClick={handleLogout}>
+          Logout
+        </button>
+      </div>
+      {error && <p className="error-message">Failed to load fruits</p>}
+
       <Routes>
         <Route
           path="/"
@@ -101,7 +135,7 @@ function App() {
               chooseFavouriteFruit={chooseFavouriteFruit}
             />
           }
-        ></Route>
+        />
         <Route
           path="/cart"
           element={
@@ -114,7 +148,7 @@ function App() {
               chooseFavouriteFruit={chooseFavouriteFruit}
             />
           }
-        ></Route>
+        />
         <Route
           path="/hearts"
           element={
@@ -126,7 +160,8 @@ function App() {
               chooseFavouriteFruit={chooseFavouriteFruit}
             />
           }
-        ></Route>
+        />
+        <Route path="/admin" element={<AdminDashboard />} />
       </Routes>
     </Router>
   );

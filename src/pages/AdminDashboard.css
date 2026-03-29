@@ -1,0 +1,33 @@
+.admin-dashboard {
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(135deg, #fff7e6, #ffe4ec, #e8fff3);
+}
+
+.admin-dashboard-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #2e7d32;
+}
+
+.inventory-section {
+  max-width: 900px;
+  margin: 2rem auto;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+.inventory-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.inventory-item {
+  padding: 12px;
+  border-radius: 10px;
+  background: #f8f9fa;
+}

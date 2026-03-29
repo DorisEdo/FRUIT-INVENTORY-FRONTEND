@@ -5,6 +5,10 @@
   justify-content: center;
   margin: 10px;
   margin-bottom: 40px;
+  background: white;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .Fruits {
@@ -35,7 +39,36 @@
 
 .buttonRow {
   display: flex;
-  gap: 5px;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.buttonRow button {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.buttonRow button:nth-child(1) {
+  background-color: #4caf50;
+  color: white;
+}
+
+.buttonRow button:nth-child(2) {
+  background-color: #ff9800;
+  color: white;
+}
+
+.buttonRow button:nth-child(3) {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttonRow button:nth-child(4) {
+  background-color: #ffe0e9;
 }
 
 .fruit-image {
@@ -60,13 +93,34 @@
   justify-content: center;
   gap: 10px;
   margin-top: 30px;
+  font-size: 1.6rem;
 }
 
 .app-background {
-  background-color: #e6f0ff#f4fbf9;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #fff7e6, #ffe4ec, #e8fff3);
+}
+
+.app-background::before {
+  content: "🍎 🍊 🍌 🍓 🍇";
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.app-background::after {
+  content: "🍍 🥝 🍒 🍉";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.18;
+  pointer-events: none;
 }
 
 .summary {
@@ -77,9 +131,10 @@
 
 .fruit-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
-  gap: 2rem; /* space between cards */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
   justify-items: center;
+  margin-top: 2rem;
 }
 
 .Total-Fruits span,
@@ -92,15 +147,13 @@
 
 .totals-box {
   position: fixed;
-  top: 5px;
-  right: 5px;
-
-  background: rgba(255, 255, 255, 0.9);
+  top: 12px;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.95);
   padding: 15px 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-  min-width: 220px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  min-width: 260px;
   font-weight: bold;
   z-index: 1000;
 }
