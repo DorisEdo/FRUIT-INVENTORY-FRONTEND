@@ -1,7 +1,27 @@
 .admin-dashboard {
   min-height: 100vh;
   padding: 2rem;
+
   background: linear-gradient(135deg, #fff7e6, #ffe4ec, #e8fff3);
+  position: relative;
+}
+
+.admin-dashboard::before {
+  content: "🍎 🍊 🍌 🍓 🍇 🍍 🥝 🍉";
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.admin-dashboard::after {
+  content: "🍒 🍐 🍋 🍑";
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
 }
 
 .admin-dashboard-title {
@@ -30,4 +50,17 @@
   padding: 12px;
   border-radius: 10px;
   background: #f8f9fa;
+}
+
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.inventory-item {
+  padding: 12px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }

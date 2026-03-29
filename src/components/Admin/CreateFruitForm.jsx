@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./CreateFruitForm.css";
 
-function CreateFruitForm({ onFruitAdded }) {
+function CreateFruitForm({ onFruitAdded, refreshCategoriesSignal }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -39,7 +39,7 @@ function CreateFruitForm({ onFruitAdded }) {
     }
 
     fetchCategories();
-  }, []);
+  }, [refreshCategoriesSignal]);
 
   function handleChange(event) {
     const { name, value } = event.target;
